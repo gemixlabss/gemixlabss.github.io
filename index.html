@@ -182,34 +182,55 @@
             color: #8f98aa;
         }
 
+        .apps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
         .app-card {
             background: linear-gradient(145deg, #121827, #0e1421);
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 22px;
-            padding: 38px;
-            display: grid;
-            grid-template-columns: 110px 1fr;
-            gap: 30px;
-            align-items: center;
-            max-width: 850px;
-            margin: auto;
+            padding: 32px 28px;
+            display: flex;
+            flex-direction: column;
+            transition: 0.2s;
+        }
+
+        .app-card:hover {
+            border-color: rgba(110,168,254,0.35);
+            transform: translateY(-3px);
         }
 
         .app-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 22px;
+            width: 84px;
+            height: 84px;
+            border-radius: 20px;
             background: linear-gradient(135deg, #4078e8, #6ea8fe);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 40px;
+            font-size: 36px;
             font-weight: 800;
+            margin-bottom: 22px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .app-icon.zynkoria {
+            background: linear-gradient(135deg, #f59e0b, #a855f7);
         }
 
         .app-card h3 {
-            font-size: 28px;
-            margin-bottom: 8px;
+            font-size: 24px;
+            margin-bottom: 4px;
         }
 
         .app-card .subtitle {
@@ -220,6 +241,29 @@
 
         .app-card p {
             color: #9fa8bb;
+            font-size: 15px;
+        }
+
+        .app-card .buttons {
+            justify-content: flex-start;
+            margin-top: auto;
+            padding-top: 24px;
+        }
+
+        .app-card .button {
+            padding: 10px 18px;
+            font-size: 13px;
+        }
+
+        .soon {
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #8db8ff;
+            border: 1px dashed rgba(110,168,254,0.45);
+            background: rgba(110,168,254,0.06);
         }
 
         .features {
@@ -284,12 +328,19 @@
         .footer-links {
             margin-top: 12px;
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 12px 20px;
         }
 
         .footer-links a:hover {
             color: #ffffff;
+        }
+
+        @media (max-width: 980px) and (min-width: 751px) {
+            .apps {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 750px) {
@@ -309,10 +360,8 @@
                 font-size: 16px;
             }
 
-            .app-card {
+            .apps {
                 grid-template-columns: 1fr;
-                text-align: center;
-                justify-items: center;
             }
 
             .features {
@@ -379,32 +428,51 @@
                 <p>GEMIX Labs tarafından geliştirilen uygulamalar</p>
             </div>
 
-            <div class="app-card">
+            <div class="apps">
 
-                <div class="app-icon">
-                    G
-                </div>
-
-                <div>
+                <div class="app-card">
+                    <div class="app-icon">G</div>
                     <h3>GALERİM</h3>
-
-                    <div class="subtitle">
-                        Akıllı Galeri
-                    </div>
-
+                    <div class="subtitle">Akıllı Galeri</div>
                     <p>
                         Fotoğraf ve videolarınızı daha düzenli, güvenli
                         ve kullanışlı bir şekilde yönetmenizi sağlayan
                         modern bir mobil galeri uygulaması.
                     </p>
+                    <div class="buttons">
+                        <a href="https://play.google.com/store/apps/details?id=com.gemixlabs.galerim"
+                           target="_blank" rel="noopener" class="button button-primary">Google Play</a>
+                        <a href="privacy.html" class="button button-secondary">Gizlilik</a>
+                    </div>
+                </div>
 
-                    <div class="buttons" style="justify-content:flex-start; margin-top:22px;">
-                        <a
-                            href="https://play.google.com/store/apps/details?id=com.gemixlabs.galerim"
-                            target="_blank"
-                            class="button button-primary">
-                            Google Play
-                        </a>
+                <div class="app-card">
+                    <div class="app-icon"><img src="img/galivio.png" alt="GALIVIO simgesi"></div>
+                    <h3>GALIVIO</h3>
+                    <div class="subtitle">Galeri &amp; Gizli Kasa</div>
+                    <p>
+                        Şifreli gizli kasası, akıllı araması, fotoğraf
+                        düzenleyicisi ve video oynatıcısıyla premium bir
+                        galeri. Özel fotoğraflarınız yalnızca cihazınızda,
+                        AES-256 ile şifrelenmiş olarak saklanır.
+                    </p>
+                    <div class="buttons">
+                        <span class="soon">Yakında Google Play'de</span>
+                        <a href="galivio-privacy/" class="button button-secondary">Gizlilik</a>
+                    </div>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-icon zynkoria">Z</div>
+                    <h3>Zynkoria</h3>
+                    <div class="subtitle">Bulmaca Oyunu</div>
+                    <p>
+                        Renkli blokları yerleştirip eşleştirdiğiniz,
+                        kolay öğrenilen ama bırakması zor, eğlenceli
+                        bir bulmaca oyunu.
+                    </p>
+                    <div class="buttons">
+                        <span class="soon">Yakında Google Play'de</span>
                     </div>
                 </div>
 
@@ -513,8 +581,9 @@
         </div>
 
         <div class="footer-links">
-            <a href="privacy.html">Gizlilik Politikası</a>
-            <a href="support.html">Destek</a>
+            <a href="privacy.html">GALERİM Gizlilik</a>
+            <a href="galivio-privacy/">GALIVIO Gizlilik</a>
+            <a href="mailto:gemixlabss@gmail.com">Destek</a>
         </div>
 
     </div>
